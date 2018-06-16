@@ -11,19 +11,22 @@ import java.util.ArrayList;
  *
  * @author Usuario
  */
-public class Pieza {
+public class Pieza{
     
     private String nombre;
     private int tiempoEjecucion;
+    private String tipo;
     private ArrayList <Pieza> piezasHijas = new ArrayList();
 
     public Pieza() {
     }
 
-    public Pieza(String nombre, int tiempoEjecucion) {
+    public Pieza(String nombre, int tiempoEjecucion, String tipo) {
         this.nombre = nombre;
         this.tiempoEjecucion = tiempoEjecucion;
+        this.tipo = tipo;
     }
+    
     
     
 
@@ -51,11 +54,22 @@ public class Pieza {
         this.piezasHijas = piezasHijas;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
+
     @Override
     public String toString() {
         return nombre;
     }
 
+    
     
     
     
