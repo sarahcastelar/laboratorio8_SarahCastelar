@@ -324,7 +324,6 @@ ArrayList <Carro> listaCarros = new ArrayList();
                     //ver si se agrega a una pieza 
                     if (String.valueOf(cb_carro.getSelectedItem()).equals(pieza)) {
                         ((Carro) listaCarros.get(i)).getListaPiezas().get(j).getPiezasHijas().add(new Pieza(nombre,tiempo,tipo));
-                       JOptionPane.showMessageDialog(this, listaCarros.get(0).getListaPiezas().get(0).getPiezasHijas());
                     }
                 }
             }
@@ -339,31 +338,28 @@ ArrayList <Carro> listaCarros = new ArrayList();
         tf_nombre.setText("");
         
         tf_nombrePieza.setText("");
-        
+        tf_tiempo.setText("");
+        tf_tipo.setText("");
         
         
     }//GEN-LAST:event_jb_crearPiezaMouseClicked
 
     private void jb_tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_tablaMouseClicked
         // TODO add your handling code here:
-        
+        ArrayList temp = new ArrayList();
         DefaultTreeModel modeloArbol = (DefaultTreeModel)jt_arbol.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
         int c = -1;
-        JOptionPane.showMessageDialog(this, "0");
         
         for (int i = 0; i < listaCarros.size(); i++) {
             Object nombreCarro = listaCarros.get(i);//agarra el nombre del carro
             DefaultMutableTreeNode nodoCarro = new DefaultMutableTreeNode(nombreCarro);
-            JOptionPane.showMessageDialog(this, listaCarros.get(0).getListaPiezas());
             
             if (listaCarros.get(i).getListaPiezas().size() >=1) {//si carro tiene Piezas.. ver si tiene piezaHijos
                 
                 if (listaCarros.get(i).getListaPiezas().get(i).getPiezasHijas().size()>=1) {
                     //si la pieza tiene hijas recorre for que las guarde de nodo
-                    
                     for (int j = 0; j < listaCarros.get(i).getListaPiezas().get(i).getPiezasHijas().size(); j++) {
-                        Object nombrePieza = listaCarros.get(i).getListaPiezas().get(i);//agarro nombre pieza
                         Object nombrePiezaHija = listaCarros.get(i).getListaPiezas().get(i).getPiezasHijas().get(j);
                         DefaultMutableTreeNode nodoPieza = new DefaultMutableTreeNode(nombrePiezaHija);
                         nodoCarro.add(nodoPieza);
@@ -394,7 +390,6 @@ ArrayList <Carro> listaCarros = new ArrayList();
         jd_tabla.setModal(true);
         jd_tabla.setVisible(true);
         
-        //hacer que aqui empieze el threaaad
         
     }//GEN-LAST:event_jb_ensamblarMouseClicked
 
